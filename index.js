@@ -1,8 +1,6 @@
 const { Client, IntentsBitField } = require('discord.js');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-console.log(process.env);
-
 const apiKey = process.env.GOOGLE_API_KEY;
 const discordBotToken = process.env.DISCORD_BOT_TOKEN;
 
@@ -40,8 +38,6 @@ client.on('messageCreate', async (message) => {
     console.error('AI model not initialized');
     return;
   }
-
-  console.log(message.author);
 
   const prompt = message.content.replace(/<@[&!\d]+>? /g, '').trim();
   console.log(prompt);
